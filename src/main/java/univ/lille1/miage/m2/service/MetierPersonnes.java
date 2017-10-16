@@ -1,5 +1,7 @@
 package univ.lille1.miage.m2.service;
 
+import java.util.Date;
+
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -35,12 +37,16 @@ public class MetierPersonnes {
 
 	}
 
-	public static void inscription(String login, String password, String nom, String prenom) {
+	public static void inscription(String login, String password, String nom, String prenom, Boolean droitImage, Date dateDeNaissance, int civilite, long age) {
 		Personne personne = new Personne();
 		personne.setLogin(login);
 		personne.setPassword(password);
 		personne.setNom(nom);
 		personne.setPrenom(prenom);
+		personne.setDroitImage(droitImage);
+		personne.setDateDeNaissance(dateDeNaissance);
+		personne.setCivilite(civilite);
+		personne.setAge(age);
 
 		getPersonnes().getListePersonne().put(login+password, personne);
 	}

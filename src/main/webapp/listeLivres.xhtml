@@ -40,7 +40,7 @@
 					<html:outputText value="#{livre.resume}" />
 				</html:column>
 
-				<html:column>
+				<html:column rendered="#{loginbean.personne.droitImage}">
 					<core:facet name="header">
 						<core:verbatim>Image</core:verbatim>
 					</core:facet>
