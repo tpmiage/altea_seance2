@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:core="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:html="http://java.sun.com/jsf/html">
+<html:head>
+	<title>Login</title>
+</html:head>
+<html:body>
+	<core:view>
+		<html:form>
+			<html:dataTable value="#{listeLivresEmpruntes.livres}" var="livre"
+				rowClasses="row1,row2" headerClass="heading" styleClass="dataTable">
+				<html:column>
+					<core:facet name="header">
+						<core:verbatim>Ref</core:verbatim>
+					</core:facet>
+					<html:outputText value="#{livre.id}" />
+				</html:column>
+
+				<html:column>
+					<core:facet name="header">
+						<core:verbatim>Titre</core:verbatim>
+					</core:facet>
+					<html:outputText value="#{livre.titre}" />
+				</html:column>
+
+				<html:column>
+					<core:facet name="header">
+						<core:verbatim>Auteur</core:verbatim>
+					</core:facet>
+					<html:outputText value="#{livre.auteur}" />
+				</html:column>
+
+				<html:column>
+					<core:facet name="header">
+						<core:verbatim>Resumé</core:verbatim>
+					</core:facet>
+					<html:outputText value="#{livre.resume}" />
+				</html:column>
+
+				<html:column>
+					<core:facet name="header">
+						<core:verbatim>Image</core:verbatim>
+					</core:facet>
+					<html:graphicImage value="#{livre.image}" />
+				</html:column>
+
+				<html:column>
+					<core:facet name="header">
+						<core:verbatim>Selectionner</core:verbatim>
+					</core:facet>
+					<html:selectBooleanCheckbox
+						value="#{listeLivresEmpruntes.checked[livre.id]}" />
+				</html:column>
+			</html:dataTable>
+			<html:commandButton value="Rendre les livres"
+				action="#{listeLivresEmpruntes.emprunterLivres}">
+			</html:commandButton>
+		</html:form>
+	</core:view>
+</html:body>
+</html>
